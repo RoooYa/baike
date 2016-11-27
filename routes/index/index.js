@@ -1,10 +1,23 @@
-var mysql = require('../common/mysql');
+'use strict'
+
+const mysql = require('../common/mysql');
 
 module.exports = function(app) {
 
 	app.get('/', function(req, res) {
-		mysql("SELECT happy.id,happy.dataTime FROM happy", function(err, vals, fields) {
-			res.json(vals);
+
+		var page = req.query.page;
+
+
+		if (!page || page < 1) page = 1;
+
+		var a = (page - 1)*20, b = ((page-1)*20+20);
+
+		var sql = 'SELECT * FROM word ORDER BY word.dataTime DESC LIMIT ' + a + ',' + b;
+
+		mysql(sql, function(err, vals, fields) {
+			if (err) throw err;
+			res.render('index', vals);
 		});
 	})
 }

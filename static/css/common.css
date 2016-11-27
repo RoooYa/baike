@@ -19,8 +19,8 @@ a{
 img{
 	border: 0;
 }
-.w1000{
-	width: 1000px;
+.w1200{
+	width: 1200px;
 	margin: 0 auto;
 }
 .float-left {
@@ -35,40 +35,59 @@ img{
 .cursor {
 	cursor: pointer;
 }
-.nav{
-	background: #24292C;
-	color:#fff;
-	font-size: 16px;
-	height: 82px;
-	margin-bottom: 30px;
+
+.outer {zoom:1;}   
+.outer :after {clear:both;content:'.';display:block;width: 0;height: 0;visibility:hidden;}
+
+
+body{
+	background: #e9e9e9;
 }
-.nav .hd {
-	margin-top: 20px;
-	font-size: 30px;
+.page-head {
+	background: #fff;
+	height: 75px;
+	box-shadow: 5px 0 10px #ccc;
+	position: fixed;
+	width: 100%;
 }
-.nav .hd img{
-	height: 40px;
-}
-.nav .bd {
-	margin: 33px 0 0 100px;
-}
-.nav .bd a {
-	color: #999;
-	margin-left: 35px;
+.page-head .w1200 {
 	position: relative;
 }
-.nav .bd a i {
+.page-head .logo, .page-head .nav, .page-head .so {
 	position: absolute;
-	bottom: -34px;
-    left: 50%;
-	display: none;
-	margin-left: -7px;
 }
-.nav .bd a:hover, .nav .bd a.act{
-	color: #fff;
+.page-head .logo {
+	top: 26px;
+	left: 0px;
 }
-.nav .bd a.act i{
-	display: inline-block;
+.page-head .nav {
+	top: 30px;
+    left: 160px;
 }
-.animation{-webkit-animation:fadeInDown 1s .1s ease both;-moz-animation:fadeInDown 1s .1s ease both;}@-webkit-keyframes fadeInDown{0%{-webkit-transform:translateY(-20px)}100%{-webkit-transform:translateY(0)}}@-moz-keyframes fadeInDown{0%{-moz-transform:translateY(-20px)}100%{-moz-transform:translateY(0)}}
-/*.animation{-webkit-animation:flipInX 1s .1s ease both;-moz-animation:flipInX 1s .1s ease both;}@-webkit-keyframes flipInX{0%{-webkit-transform:perspective(400px) rotateX(90deg)}40%{-webkit-transform:perspective(400px) rotateX(-10deg)}70%{-webkit-transform:perspective(400px) rotateX(10deg)}100%{-webkit-transform:perspective(400px) rotateX(0deg);}}@-moz-keyframes flipInX{0%{-moz-transform:perspective(400px) rotateX(90deg);}40%{-moz-transform:perspective(400px) rotateX(-10deg)}70%{-moz-transform:perspective(400px) rotateX(10deg)}100%{-moz-transform:perspective(400px) rotateX(0deg);}}*/
+.page-head .nav li {
+	float: left;
+	font-size: 16px;
+	margin: 0 40px 0 0;
+}
+.page-head .nav li a {
+	color: #606060;
+	display: block;
+}
+.page-head .nav li a:hover {
+	color: #333;
+}
+.page-head .so{
+	right: 0;
+	top: 23px;
+}
+.page-head .so input{
+	background: #E9E9E9;
+	border-radius: 5px;
+	padding-left: 10px;
+	border:0;
+	height: 33px;
+	width: 190px;
+}
+.page-body{
+	padding-top: 75px;
+}

@@ -26,6 +26,9 @@ app.use(function(req, res, next){
 var index = require('./routes/index');
 index(app);
 
+var admin = require('./routes/admin/index');
+admin(app);
+
 // // 引入word模块路由
 // var word = require('./routes/word');
 // word(app);
