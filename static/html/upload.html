@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html class="fyf">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title>
+</head>
+<body>
+<div class="form-group">
+   <input type="file" name="file" id="file">
+    <p id="result"></p>
+   <img id="img" src="">
+</div>
+<button id="upload" class="btn btn-default">提交</button>
+    
+<script type="text/javascript" src="/js/lib/require/2.1/require.js"></script>
+<script>
+require.config({
+    baseUrl: '/js/',
+    paths: {
+        'jquery': 'lib/jquery/1.11.1/jquery',
+         'bootstrap': 'lib/bootstrap/js/bootstrap.min'
+    },
+    shim: {
+        'bootstrap': ['jquery']
+    }
+    //urlArgs: 'v=151120'
+});
+</script>
+    <script>
+		require(['jquery'], function($){
+        
+      function uploadFile(){
+          var file = document.getElementById("file")
+          var formData = new FormData();
+          console.log(file.files[0])
+          formData.append('file',file.files[0]);
+          $.ajax({
+            url: '/upload',
+            type: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(data){
+             
+            }
+          })
+        }
+        $('#upload').click(uploadFile)
+
+    });
+    </script>
+</body>
+</html>

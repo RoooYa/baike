@@ -22,20 +22,9 @@ app.use(function(req, res, next){
     next();
 });
 
-// 引入index模块路由
-var index = require('./routes/index');
-index(app);
-
-var admin = require('./routes/admin/index');
-admin(app);
-
-// // 引入word模块路由
-// var word = require('./routes/word');
-// word(app);
-
-// // 引入用户模块路由
-// var reg = require('./routes/user');
-// reg(app);
+// 引入路由
+var routes = require('./routes/routes');
+routes(app);
 
 
 
