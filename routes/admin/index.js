@@ -46,7 +46,24 @@ module.exports = function(app) {
 	})
 
 
-	app.post('/admin/word/add', function(req, res) {
+	app.get('/admin/word/add', function(req, res) {
+		var data = {
+				title: '哈哈哈哈哈哈',
+				text: 'asdfasdfdddddddddddddd',
+				classId: 1,
+				twoClassId: 0,
+				readNumber: 0,
+				source: '0',
+				sourceHref: '0',
+				describe: '0',
+				img: 'asdfasdf',
+				video: '0',
+				like: 0
+			}
 		
+		mysql('INSERT INTO word SET ?', data, function(err, vals, f) {
+			if (err) throw err;
+			res.json(vals);
+		})
 	})
 }

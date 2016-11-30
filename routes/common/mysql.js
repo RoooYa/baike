@@ -8,12 +8,17 @@ var pool = mysql.createPool({
 	port: 3306
 });
 
-module.exports = function(sql, callback) {
+module.exports = function(sql, v, callback) {
 	pool.getConnection(function(err, conn) {
 		if (err) {
 			callback(err, null, null);
 		} else {
-			conn.query(sql, function(qerr, vals, fields) {
+
+			if (typeof v == 'function') {
+				callback = v;
+				v = undefined;
+			}
+			conn.query(sql, v, function(qerr, vals, fields) {
 				//释放连接  
 				conn.release();
 				//事件驱动回调  
