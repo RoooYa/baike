@@ -8,7 +8,6 @@ module.exports = function(app) {
 
 		var page = req.query.page;
 
-
 		if (!page || page < 1) page = 1;
 
 		var a = (page - 1)*20, b = ((page-1)*20+20);
