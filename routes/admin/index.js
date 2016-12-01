@@ -28,37 +28,38 @@ module.exports = function(app) {
 			mysql(sql, function(err, vals, fields) {
 				if (err) throw err;
 
-				res.json({
-					code: 0,
-					count: count,
-					page: page,
-					data: vals
-				});
-
-				// res.render('admin/index', {
+				// res.json({
 				// 	code: 0,
 				// 	count: count,
 				// 	page: page,
 				// 	data: vals
 				// });
+
+
+				res.render('admin/index', {
+					code: 0,
+					count: count,
+					page: page,
+					data: vals
+				});
 			});
 		})
 	})
 
+	app.get('/admin/addword', function(req, res){
+		res.render('admin/addword', {});
+	})
 
 	app.get('/admin/word/add', function(req, res) {
 		var data = {
-				title: '哈哈哈哈哈哈',
-				text: 'asdfasdfdddddddddddddd',
-				classId: 1,
-				twoClassId: 0,
-				readNumber: 0,
-				source: '0',
-				sourceHref: '0',
-				describe: '0',
-				img: 'asdfasdf',
-				video: '0',
-				like: 0
+				title: req.body.title,
+				text: req.body.text,
+				classId: req.body.classId,
+				twoClassId: req.body.twoClassId,
+				source: req.body.source,
+				sourceHref: req.body.sourceHref,
+				describe: req.body.describe,
+				img: req.body.img,
 			}
 		
 		mysql('INSERT INTO word SET ?', data, function(err, vals, f) {

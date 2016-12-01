@@ -24,12 +24,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">List</a></li>
+        <li class="active"><a href="#">WordList</a></li>
         <li><a href="#">Class</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Add <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">List</a></li>
+            <li><a href="#">Word</a></li>
             <li><a href="#">Class</a></li>
             <li><a href="#">Something else here</a></li>
             <li class="divider"></li>
@@ -59,39 +59,43 @@
  
 
    
-   
-
 
 
   <!-- Table -->
   <table class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
+      <th width="50">id</th>
+      <th>标题</th>
+      <th>内容</th>
+      <th>标题图片</th>
+      <th>一级分类</th>
+      <th>二级分类</th>
+      <th>来源</th>
+      <th>更新时间</th>
+      <th>浏览次数</th>
+      <th>喜欢次数</th>
+      <th>描述</th>
+      <th width="50">操作</th>
     </tr>
   </thead>
   <tbody>
+    <% for(var i=0; i<data.length; i++) { %>
     <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td><%= data[i].id%></td>
+      <td><%= data[i].title%></td>
+      <td><span class="label label-success" data-text="<%= data[i].text%>">查看</span></td>
+      <td><%= data[i].img%></td>
+      <td><%= data[i].classId%></td>
+      <td><%= data[i].twoClassId%></td>
+      <td><%= data[i].source%></td>
+      <td><%= data[i].dataTime%></td>
+      <td><%= data[i].readNumber%></td>
+      <td><%= data[i].like%></td>
+      <td><%= data[i].describe%></td>
+      <td><a href="">修改</a> <a href="">删除</a></td>
     </tr>
-    <tr>
-      <td>2</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    <% } %>
   </tbody>
 </table>
 
