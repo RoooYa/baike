@@ -34,12 +34,14 @@ var upload = multer({
 module.exports = function(app) {
 	app.post('/upload', upload.single('file'), function(req, res) {
 		var fileFormat = req.file.originalname.split('.');
-
 		for (let i = 0; i < IMGTYPE.length; i++) {
 			if (IMGTYPE[i] == fileFormat[fileFormat.length - 1]) {
 				res.json({
 					code: 0,
-					msg: '上传成功'
+					msg: '上传成功',
+					datas: [{
+						url: req.file.filename
+					}]
 				})
 				return;
 			}
