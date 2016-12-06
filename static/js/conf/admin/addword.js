@@ -28,4 +28,5 @@ define(function(require, exports, module) {
 	}
 	$('#file').on('change', uploadFile);
 
+
 })
