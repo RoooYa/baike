@@ -50,7 +50,8 @@ module.exports = function(app) {
 		res.render('admin/addword', {});
 	})
 
-	app.get('/admin/word/add', function(req, res) {
+	app.post('/admin/word/add', function(req, res) {
+		console.log(req.body)
 		var data = {
 				title: req.body.title,
 				text: req.body.text,
