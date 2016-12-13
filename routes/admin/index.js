@@ -24,7 +24,8 @@ module.exports = function(app) {
 			if (!page || page < 1) page = 1;
 			var a = (page - 1) * t,
 				b = ((page - 1) * t + t);
-			var sql = 'SELECT * FROM word ORDER BY word.dataTime DESC LIMIT ' + a + ',' + b;
+			var sql = 'SELECT word.id,word.title,word.classId,word.twoClassId,word.readNumber,word.dataTime,word.img,word.`like`, class.`name` AS className, twoclass.`name` AS twoClassName, word.`describe`, word.sourceHref, word.source, word.text FROM word INNER JOIN class ON word.classId = class.id INNER JOIN twoclass ON word.twoClassId = twoclass.id LIMIT ' + a + ',' + b;
+			//var sql = 'SELECT * FROM word ORDER BY word.dataTime DESC LIMIT ' + a + ',' + b;
 			mysql(sql, function(err, vals, fields) {
 				if (err) throw err;
 				res.render('admin/index', {
@@ -64,7 +65,7 @@ module.exports = function(app) {
 
 	app.get('/admin/word/del', function(req, res) {
 		var sql = 'delete from word where id = ' + req.query.id;
-	
+
 		mysql(sql, function(err, vals, f) {
 			if (err) throw err;
 			//res.json(vals);
