@@ -19,25 +19,17 @@ module.exports = function(app) {
 
 			// 获取总条数
 			var count = vals[0]['count(id)'];
-
 			var page = req.query.page;
+			var t = 10;
 			if (!page || page < 1) page = 1;
-			var a = (page - 1) * 20,
-				b = ((page - 1) * 20 + 20);
+			var a = (page - 1) * t,
+				b = ((page - 1) * t + t);
 			var sql = 'SELECT * FROM word ORDER BY word.dataTime DESC LIMIT ' + a + ',' + b;
 			mysql(sql, function(err, vals, fields) {
 				if (err) throw err;
-
-				// res.json({
-				// 	code: 0,
-				// 	count: count,
-				// 	page: page,
-				// 	data: vals
-				// });
-
-
 				res.render('admin/index', {
 					code: 0,
+					number: t,
 					count: count,
 					page: page,
 					data: vals
@@ -46,26 +38,40 @@ module.exports = function(app) {
 		})
 	})
 
-	app.get('/admin/addword', function(req, res){
-		res.render('admin/addword', {});
+	app.get('/admin/addword', function(req, res) {
+		res.render('admin/addword');
 	})
 
+	// 添加文章
 	app.post('/admin/word/add', function(req, res) {
-		console.log(req.body)
 		var data = {
-				title: req.body.title,
-				text: req.body.text,
-				classId: req.body.classId,
-				twoClassId: req.body.twoClassId,
-				source: req.body.source,
-				sourceHref: req.body.sourceHref,
-				describe: req.body.describe,
-				img: req.body.img,
-			}
-		
+			title: req.body.title,
+			text: req.body.text,
+			classId: req.body.classId,
+			twoClassId: req.body.twoClassId,
+			source: req.body.source,
+			sourceHref: req.body.sourceHref,
+			describe: req.body.describe,
+			img: req.body.img,
+		}
+
 		mysql('INSERT INTO word SET ?', data, function(err, vals, f) {
 			if (err) throw err;
-			res.json(vals);
+			//res.json(vals);
+			res.redirect('/admin');
+		})
+	})
+
+	app.get('/admin/word/del', function(req, res) {
+		var sql = 'delete from word where id = ' + req.query.id;
+	
+		mysql(sql, function(err, vals, f) {
+			if (err) throw err;
+			//res.json(vals);
+
+
+
+			res.redirect('/admin');
 		})
 	})
 }

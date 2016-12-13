@@ -10,13 +10,17 @@ module.exports = function(app) {
 
 		if (!page || page < 1) page = 1;
 
-		var a = (page - 1)*20, b = ((page-1)*20+20);
+		var a = (page - 1) * 20,
+			b = ((page - 1) * 20 + 20);
 
 		var sql = 'SELECT * FROM word ORDER BY word.dataTime DESC LIMIT ' + a + ',' + b;
 
 		mysql(sql, function(err, vals, fields) {
 			if (err) throw err;
-			res.render('index', vals);
-		});
+			res.render('index', {
+				code: 0,
+				data: vals
+			})
+		})
 	})
 }

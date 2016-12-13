@@ -18,6 +18,18 @@
      <% var date = new Date(t) %>
       <%= date.toLocaleString() %>
   <% } %>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div>
+        1
+      </div>
+      <div>
+        2
+      </div>
+    </div>
+  </div>
+
   <!-- Table -->
   <table class="table table-bordered table-hover">
   <thead>
@@ -48,23 +60,33 @@
       <td><%= data[i].readNumber%></td>
       <td><%= data[i].like%></td>
       <td><%= data[i].describe%></td>
-      <td><a href="">修改</a> <a href="">删除</a></td>
+      <td><a href="">修改</a> <a href="/admin/word/del?id=<%= data[i].id%>">删除</a></td>
     </tr>
     <% } %>
   </tbody>
 </table>
 
+<% var len = Math.ceil(count/number) %>
+<%=page%>
+<% if(len > 1){%>
 <nav style="text-align: center;">
-  <ul class="pagination pagination-lg">
-    <li><a href="#">&laquo;</a></li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#">&raquo;</a></li>
+  <ul class="pagination">
+    <% if(page!=1){%>
+      <li><a href="/admin?page=<%=parseInt(page)-1%>">上一页</a></li>
+    <%}%>
+    <% for(var i=1; i<= len; i++){%>
+      <% if(i==page){%>
+      <li class="active"><a href="/admin?page=<%=i%>"><%= i%></a></li>
+      <%}else{%>
+        <li><a href="/admin?page=<%=i%>"><%= i%></a></li>
+      <%}%>
+    <%}%>
+    <% if(page!=len){%>
+      <li><a href="/admin?page=<%=parseInt(page)+1%>">下一页</a></li>
+    <%}%>
   </ul>
-</nav>    
+</nav>
+<%}%>
 <% include ../include/ft.ejs %>
 <script>
 require(['conf/admin/index']);

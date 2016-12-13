@@ -8,22 +8,20 @@
 <body>
 	<% include include/nav.ejs %> 
 	
-  	<div class="w1200 page-body outer">
+  	<div class="w1200 page-body">
   		<div class="h3">最新内容</div>
 
-  		<ul class="bd-left outer">
-  			<li>1</li>
-  			<li>2</li>
-  			<li>3</li>
-  			<li>1</li>
-  			<li>2</li>
-  			<li>3</li>
-  			<li>1</li>
-  			<li>2</li>
-  			<li>3</li>
-  			<li>1</li>
-  			<li>2</li>
-  			<li>3</li>
+  		<ul class="bd-left">
+        <%for(var i=0, len=data.length; i<len; i++){%>
+  			<li>
+          <div><a href=""><img src="<%= data[i].img%>"></a></div>
+          <div class="title"><a href=""><%= data[i].title%></a></div>
+          <div class="tool">
+            <span>271</span> <span>100</span>
+            <!-- <label>2016-12-07 18:36:56</label> -->
+          </div>
+        </li>
+        <%}%>
   		</ul>
   		
   		<div class="bd-right">
