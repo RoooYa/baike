@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html class="fyf">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title>
+    <link rel="stylesheet" href="/js/lib/bootstrap/css/bootstrap.min.css">
+    <style type="text/css">
+    body{
+      font-size: 12px;
+    }
+    </style>
+</head>
+<body>
+
+
+ <% function time(t){ %>
+     <% var date = new Date(t) %>
+      <%= date.toLocaleString() %>
+  <% } %>
+  <!-- Table -->
+  <table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>标题</th>
+      <th>内容</th>
+      <th width="70">标题图片</th>
+      <th width="80">一级分类</th>
+      <th width="100">二级分类</th>
+      <th>来源</th>
+      <th width="100">更新时间</th>
+      <th>浏览次数</th>
+      <th>喜欢次数</th>
+      <th>描述</th>
+      <th width="50">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(var i=0; i<data.length; i++) { %>
+    <tr>
+      <td><%= data[i].title%></td>
+      <td><span class="label label-success" data-text="<%= data[i].text%>">查看</span></td>
+      <td><img src="<%= data[i].img%>" height="30"></td>
+      <td><%= data[i].className%></td>
+      <td><%= data[i].twoClassName%></td>
+      <td><%= data[i].source%></td>
+      <td><% time(data[i].dataTime)%></td>
+      <td><%= data[i].readNumber%></td>
+      <td><%= data[i].like%></td>
+      <td><%= data[i].describe%></td>
+      <td><a href="">修改</a> <a href="/admin/word/del?id=<%= data[i].id%>">删除</a></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<% var len = Math.ceil(count/number) %>
+<% if(len > 1){%>
+<nav style="text-align: center;">
+  <ul class="pagination">
+    <% if(page!=1){%>
+      <li><a href="/admin?page=<%=parseInt(page)-1%>">上一页</a></li>
+    <%}%>
+    <% for(var i=1; i<= len; i++){%>
+      <% if(i==page){%>
+      <li class="active"><a href="/admin?page=<%=i%>"><%= i%></a></li>
+      <%}else{%>
+        <li><a href="/admin?page=<%=i%>"><%= i%></a></li>
+      <%}%>
+    <%}%>
+    <% if(page!=len){%>
+      <li><a href="/admin?page=<%=parseInt(page)+1%>">下一页</a></li>
+    <%}%>
+  </ul>
+</nav>
+<%}%>
+</body>
+</html>

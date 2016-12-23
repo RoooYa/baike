@@ -7,11 +7,22 @@
 'use strict'
 
 const mysql = require('../common/mysql');
+const classify = require('../common/class');
 
 module.exports = function(app) {
 
 	app.get('/admin', function(req, res) {
+		// 查询一级分类
+		classify.one(function(data) {
+			console.log(data);
+			res.render('admin/index', {
+				code: 0,
+				data: data
+			})
+		})
+	})
 
+	app.get('/admin/list', function(req, res) {
 		var sql = 'select count(id) from word';
 
 		mysql(sql, function(err, vals, fields) {
@@ -28,7 +39,7 @@ module.exports = function(app) {
 			//var sql = 'SELECT * FROM word ORDER BY word.dataTime DESC LIMIT ' + a + ',' + b;
 			mysql(sql, function(err, vals, fields) {
 				if (err) throw err;
-				res.render('admin/index', {
+				res.render('admin/list', {
 					code: 0,
 					number: t,
 					count: count,
@@ -38,6 +49,7 @@ module.exports = function(app) {
 			});
 		})
 	})
+
 
 	app.get('/admin/addword', function(req, res) {
 		res.render('admin/addword');

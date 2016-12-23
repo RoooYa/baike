@@ -9,7 +9,6 @@
       font-size: 12px;
     }
     .course-nav {
-      font-size: 14px;
       margin-bottom: 10px;
     }
     .course-nav b{
@@ -21,12 +20,17 @@
     .course-nav .bd a{
       margin-left: 10px;
       color: #333;
-      padding: 5px 10px;
+      padding: 3px 8px;
       border-radius: 3px;
     }
     .course-nav .bd a.act{
       background: #5cb85c;
       color:#fff;
+    }
+    iframe{
+      width: 100%;
+      border: 0;
+      height: 500px;
     }
     </style>
 </head>
@@ -34,84 +38,27 @@
 
  <% include ./common/nav.ejs %>
 
- <% function time(t){ %>
-     <% var date = new Date(t) %>
-      <%= date.toLocaleString() %>
-  <% } %>
-
   <div class="panel panel-default">
     <div class="panel-body">
       <div id="className" class="course-nav">
         <b>一级分类：</b>
         <div class="bd">
-          <a href="" class="act">全部</a>
+          <a href="/admin/list" class="act" target="iframe">全部</a>
+          <%for(var i=0;i<data.length; i++){%>
+            <a href="/admin/list" target="iframe"><%=data[i].name%></a>
+          <%}%>
         </div>
       </div>
       <div id="classTwoName" class="course-nav">
         <b>二级分类：</b>
         <div class="bd">
-          <a href="" class="act">全部</a>
+          <a href="" class="act" >全部</a>
         </div>
       </div>
     </div>
   </div>
+<iframe name="iframe" src="/admin/list"></iframe>
 
-  <!-- Table -->
-  <table class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>标题</th>
-      <th>内容</th>
-      <th width="70">标题图片</th>
-      <th width="80">一级分类</th>
-      <th width="100">二级分类</th>
-      <th>来源</th>
-      <th width="100">更新时间</th>
-      <th>浏览次数</th>
-      <th>喜欢次数</th>
-      <th>描述</th>
-      <th width="50">操作</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% for(var i=0; i<data.length; i++) { %>
-    <tr>
-      <td><%= data[i].title%></td>
-      <td><span class="label label-success" data-text="<%= data[i].text%>">查看</span></td>
-      <td><img src="<%= data[i].img%>" height="30"></td>
-      <td><%= data[i].className%></td>
-      <td><%= data[i].twoClassName%></td>
-      <td><%= data[i].source%></td>
-      <td><% time(data[i].dataTime)%></td>
-      <td><%= data[i].readNumber%></td>
-      <td><%= data[i].like%></td>
-      <td><%= data[i].describe%></td>
-      <td><a href="">修改</a> <a href="/admin/word/del?id=<%= data[i].id%>">删除</a></td>
-    </tr>
-    <% } %>
-  </tbody>
-</table>
-
-<% var len = Math.ceil(count/number) %>
-<% if(len > 1){%>
-<nav style="text-align: center;">
-  <ul class="pagination">
-    <% if(page!=1){%>
-      <li><a href="/admin?page=<%=parseInt(page)-1%>">上一页</a></li>
-    <%}%>
-    <% for(var i=1; i<= len; i++){%>
-      <% if(i==page){%>
-      <li class="active"><a href="/admin?page=<%=i%>"><%= i%></a></li>
-      <%}else{%>
-        <li><a href="/admin?page=<%=i%>"><%= i%></a></li>
-      <%}%>
-    <%}%>
-    <% if(page!=len){%>
-      <li><a href="/admin?page=<%=parseInt(page)+1%>">下一页</a></li>
-    <%}%>
-  </ul>
-</nav>
-<%}%>
 <% include ../include/ft.ejs %>
 <script>
 require(['conf/admin/index']);

@@ -6,10 +6,24 @@
     <link rel="stylesheet" type="text/css" href="/css/index/index.css">
 </head>
 <body>
-	<% include include/nav.ejs %> 
-	
-  	<div class="w1200 page-body">
-  		<div class="h3">最新内容</div>
+  <% include include/nav.ejs %> 
+  
+    <div class="w1200 page-body">
+      <div class="twoClass">
+        <%if(!twoClassId){%>
+          <a href="/list?classId=<%=classId%>" class="act">全部</a>
+        <%}else{%>
+          <a href="/list?classId=<%=classId%>">全部</a>
+        <%}%>
+        <%for(var i=0, len=twoClass.length; i<len; i++){%>
+          <%if(twoClass[i].id == twoClassId){%>
+            <a class="act" href="/list?classId=<%=classId%>&twoClassId=<%=twoClass[i].id%>"><%= twoClass[i].name%></a>
+          <%}else{%>
+          <a href="/list?classId=<%=classId%>&twoClassId=<%=twoClass[i].id%>"><%= twoClass[i].name%></a>
+          <%}%>
+        <%}%>
+
+      </div>
       <div class="bd-left">
         <ul>
           <%for(var i=0, len=data.length; i<len; i++){%>
@@ -34,19 +48,17 @@
           <%}%>
         </div>
       </div>
-  		
-  		
-  		<div class="bd-right">
-  			<div style="height:200px;background: #fff">
+      <div class="bd-right">
+        <div style="height:200px;background: #fff">
 
-  			</div>
-  		</div>
+        </div>
+      </div>
       <div class="clear"></div>
-  	</div>
+    </div>
     
     <% include include/ft.ejs %>
     <script>
-		require(['conf/index/index']);
+    require(['conf/index/index']);
     </script>
 </body>
 </html>

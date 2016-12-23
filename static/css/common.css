@@ -1,4 +1,4 @@
-@import url('/font/iconfont.css');
+@import url('../font/iconfont.css');
 body{
 	font-size: 12px;
 	color: #444;
@@ -38,7 +38,7 @@ img{
 
 .outer {zoom:1;}   
 .outer :after {clear:both;content:'.';display:block;width: 0;height: 0;visibility:hidden;}
-
+.clear{ clear:both} 
 
 body{
 	background: #e9e9e9;
