@@ -58,17 +58,17 @@
 <nav style="text-align: center;">
   <ul class="pagination">
     <% if(page!=1){%>
-      <li><a href="/admin?page=<%=parseInt(page)-1%>">上一页</a></li>
+      <li><a href="/admin/list?page=<%=parseInt(page)-1%>">上一页</a></li>
     <%}%>
     <% for(var i=1; i<= len; i++){%>
       <% if(i==page){%>
-      <li class="active"><a href="/admin?page=<%=i%>"><%= i%></a></li>
+      <li class="active"><a href="/admin/list?page=<%=i%>"><%= i%></a></li>
       <%}else{%>
-        <li><a href="/admin?page=<%=i%>"><%= i%></a></li>
+        <li><a href="/admin/list?page=<%=i%>"><%= i%></a></li>
       <%}%>
     <%}%>
     <% if(page!=len){%>
-      <li><a href="/admin?page=<%=parseInt(page)+1%>">下一页</a></li>
+      <li><a href="/admin/list?page=<%=parseInt(page)+1%>">下一页</a></li>
     <%}%>
   </ul>
 </nav>

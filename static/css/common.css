@@ -49,6 +49,7 @@ body{
 	box-shadow: 5px 0 10px #ccc;
 	position: fixed;
 	width: 100%;
+	z-index: 100;
 }
 .page-head .w1200 {
 	position: relative;
@@ -90,4 +91,8 @@ body{
 }
 .page-body{
 	padding-top: 75px;
+}
+.page-ft {
+	background: #fff;
+	height: 200px;
 }

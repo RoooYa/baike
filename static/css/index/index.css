@@ -102,6 +102,44 @@
 .bd-right {
 	float: right;
 	right: 0;
-	width: 280px;
+	width: 300px;
 	top: 0;
+}
+.bd-right .hotword {
+	background:#fff;
+	border-radius: 5px;
+}
+.bd-right .hotword .hd{
+	padding: 15px 10px 10px 10px;
+	font-size: 14px;
+}
+.bd-right .hotword .bd{
+
+}
+.bd-right .hotword .bd li{
+	margin: 0 10px;
+	border-top: solid #eee 1px;
+	padding: 10px 0;
+	position: relative;
+}
+.bd-right .hotword .bd li .text {
+	position: absolute;
+	top: 15px;
+	left: 110px;
+	height: 70px;
+	padding-right: 5px;
+}
+.bd-right .hotword .bd li .text span{
+	position: absolute;
+	bottom: 0;
+	left: 2px;
+	color: #999;
+}
+.bd-right .hotword .bd li .text a:hover{
+	color: #ff5252;
+}
+.bd-right .hotword .bd img{
+	width: 100px;
+	border-radius: 3px;
+	height: 80px;
 }
