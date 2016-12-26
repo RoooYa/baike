@@ -27,10 +27,20 @@
       background: #5cb85c;
       color:#fff;
     }
+    .course-nav .bd span{
+      margin-left: 10px;
+      color: #428bca;
+     
+      cursor: pointer;
+    }
     iframe{
       width: 100%;
       border: 0;
       height: 500px;
+    }
+    .form-control {
+      width: 185px !important;
+      margin-right: 5px;
     }
     </style>
 </head>
@@ -45,14 +55,15 @@
         <div class="bd">
           <a href="/admin/list" class="act" target="iframe">全部</a>
           <%for(var i=0;i<data.length; i++){%>
-            <a href="/admin/list" target="iframe"><%=data[i].name%></a>
+            <a href="/admin/list" target="iframe" data-id="<%=data[i].id%>"><%=data[i].name%></a>
           <%}%>
+          <span id="addClass">添加分类</span>
         </div>
       </div>
-      <div id="classTwoName" class="course-nav">
+      <div id="classTwoName" class="course-nav" style="display:none">
         <b>二级分类：</b>
         <div class="bd">
-          <a href="" class="act" >全部</a>
+          
         </div>
       </div>
     </div>

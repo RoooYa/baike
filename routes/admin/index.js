@@ -14,7 +14,6 @@ module.exports = function(app) {
 	app.get('/admin', function(req, res) {
 		// 查询一级分类
 		classify.one(function(data) {
-			console.log(data);
 			res.render('admin/index', {
 				code: 0,
 				data: data
@@ -22,6 +21,7 @@ module.exports = function(app) {
 		})
 	})
 
+	// 查询文章列表
 	app.get('/admin/list', function(req, res) {
 		var sql = 'select count(id) from word';
 
@@ -75,6 +75,8 @@ module.exports = function(app) {
 		})
 	})
 
+
+	// 删除文章
 	app.get('/admin/word/del', function(req, res) {
 		var sql = 'delete from word where id = ' + req.query.id;
 
@@ -85,6 +87,37 @@ module.exports = function(app) {
 
 
 			res.redirect('/admin');
+		})
+	})
+
+
+	// 添加一级分类
+	app.get('/admin/class/add', function(req, res) {
+		var data = {
+			name: req.query.name
+		}
+		mysql('INSERT INTO class SET ?', data, function(err, vals, f) {
+			if (err) throw err;
+			res.json({
+				code: 0,
+				msg: '添加成功'
+			});
+		})
+	})
+
+
+	// 添加二级分类
+	app.get('/admin/twoclass/add', function(req, res) {
+		var data = {
+			classId: req.query.classId,
+			name: req.query.name
+		}
+		mysql('INSERT INTO twoclass SET ?', data, function(err, vals, f) {
+			if (err) throw err;
+			res.json({
+				code: 0,
+				msg: '添加成功'
+			});
 		})
 	})
 }

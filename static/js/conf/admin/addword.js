@@ -52,4 +52,7 @@ define(function(require, exports, module) {
 		})
 	})
 
+
+	var editor = new wangEditor('textarea');
+    editor.create();
 })
