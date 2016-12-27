@@ -5,7 +5,7 @@ define(function(require, exports, module) {
 	var $ = require('jquery');
 	var _ = require('conf/common');
 
-	alert("d");
+	
 	// $('#setWord').on('click', function() {
 	// 	$.ajax({
 	// 	   type: "GET",

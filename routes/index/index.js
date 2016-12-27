@@ -5,6 +5,7 @@ const classify = require('../common/class');
 
 module.exports = function(app) {
 
+	// 首页
 	app.get('/', function(req, res) {
 
 		var page = req.query.page;
@@ -26,6 +27,7 @@ module.exports = function(app) {
 		})
 	})
 
+	// 列表也
 	app.get('/list', function(req, res) {
 		var page = req.query.page;
 
@@ -59,6 +61,17 @@ module.exports = function(app) {
 				})
 			})
 
+		})
+	})
+
+	// 详情页
+	app.get('/item', function(req, res) {
+		mysql('SELECT * FROM word WHERE word.id = ' + req.query.id, function(err, vals, fields) {
+			if (err) throw err;
+			res.render('item', {
+				code: 0,
+				data: vals
+			})
 		})
 	})
 }
