@@ -1,13 +1,54 @@
 @import url('/css/common.css');
 
 
-.page-body{
-	
+.page-body {
+	margin-bottom: 20px;
 }
 
+.margin {
+	height: 30px;
+}
 
+.bd-left {
+	width: 880px;
+	float: left;
+	background: #fff;
+	border-radius: 5px;
+	padding-bottom: 20px;
+}
+.bd-left .title{
+	margin: 32px 0 20px 20px;
+    font-size: 28px;
+}
 
-
+.writing-box {
+	padding: 0 10px 0 10px;
+	color: #666;
+	margin: 0 10px;
+	border-bottom: 1px dashed #eee;
+	padding-bottom: 20px;
+}
+.writing-box span{
+	margin-right: 15px;
+}
+.bd-left .cente-bd {
+	padding: 10px 20px 0 20px;
+	font-size: 14px;
+}
+.bd-left .cente-bd p {
+	padding: 15px 0;
+}
+.item-ft {
+	padding: 0 20px 20px 20px;
+}
+.item-ft .like {
+	text-align: center;
+}
+.item-ft .like i{
+	font-size: 50px;
+	color: #999;
+	cursor: pointer;
+}
 
 .bd-right {
 	float: right;

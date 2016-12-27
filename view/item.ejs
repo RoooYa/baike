@@ -7,12 +7,34 @@
 </head>
 <body>
 	<% include include/nav.ejs %> 
-	  
+
+	  <% function time(t){ %>
+     <% var date = new Date(t) %>
+      <%= date.toLocaleString() %>
+  <% } %>
+
   	<div class="w1200 page-body">
+      <div class="margin"></div>
       <div class="bd-left">
-        asf
+        <div class="title">
+          <%= data[0].title %>
+        </div>
+        <div class="writing-box">
+          <span><% time(data[0].dataTime) %></span>
+          <span>阅读：<%= data[0].readNumber %></span>
+          <span>喜欢：<%= data[0].like %></span>
+        </div>
+        <div class="cente-bd">
+          <%- data[0].text %>
+        </div>
+        <div class="item-ft">
+          <!-- 本站内容均转自互联网，版权归原作者所有 -->
+          <div class="like">
+            <i class="iconfont">&#xe684;</i>
+            <div>喜欢</div>
+          </div>
+        </div>
       </div>
-  		
   		<div class="bd-right">
   			<div class="hotword">
           <div class="hd">热门文章</div>
@@ -57,11 +79,7 @@
   		</div>
       <div class="clear"></div>
   	</div>
-    <div class="page-ft">
-      <div class="w1200">
-        123
-      </div>
-    </div>
+
     <% include include/ft.ejs %>
     <script>
 		require(['conf/index/index']);

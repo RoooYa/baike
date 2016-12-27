@@ -14,8 +14,8 @@
         <ul>
           <%for(var i=0, len=data.length; i<len; i++){%>
           <li>
-            <div><a href=""><img src="<%= data[i].img%>"></a></div>
-            <div class="title"><a href=""><%= data[i].title%></a></div>
+            <div><a href="/item?id=<%= data[i].id %>"><img src="<%= data[i].img%>"></a></div>
+            <div class="title"><a href="/item?id=<%= data[i].id %>"><%= data[i].title%></a></div>
             <div class="tool">
               <span class="ll"><i class="iconfont">&#xe661;</i><%= data[i].readNumber%></span>
               <span class="xh"><i class="iconfont">&#xe643;</i><%= data[i].like%></span>
@@ -43,7 +43,7 @@
             <li>
               <img src="http://www.topys.cn/attachments/1612/19/5857aff2a313c.png"/>
               <div class="text">
-                <a href="#">一个时代的记忆，超级马里奥推真人版宣传片</a>
+                <a href="">一个时代的记忆，超级马里奥推真人版宣传片</a>
                 <span>2012-01-12</span>
               </div>
             </li>
@@ -80,11 +80,7 @@
   		</div>
       <div class="clear"></div>
   	</div>
-    <div class="page-ft">
-      <div class="w1200">
-        123
-      </div>
-    </div>
+    
     <% include include/ft.ejs %>
     <script>
 		require(['conf/index/index']);

@@ -72,6 +72,15 @@ module.exports = function(app) {
 				code: 0,
 				data: vals
 			})
+			
+			mysql('update word set word.readNumber = word.readNumber+1 where id = ' + req.query.id, function(err, vals, fields){
+				if (err) throw err;
+			})
+			
 		})
 	})
+
+	// app.get('/item/readnumber', function(req, res) {
+
+	// })
 }

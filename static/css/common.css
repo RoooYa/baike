@@ -92,10 +92,7 @@ body{
 .page-body{
 	padding-top: 75px;
 }
-.page-ft {
-	background: #fff;
-	height: 200px;
-}
+
 .h-search-form{
 	cursor: pointer;
 	position: relative;
@@ -109,5 +106,30 @@ body{
 	cursor: pointer;
 }
 .search-btn i{
+	color: #666;
+}
+
+.page-ft {
+	background: #fff;
+	margin-top: 50px;
+}
+.page-ft .logos {
+	padding-top: 30px;
+	color: #666;
+	font-size: 16px;
+	line-height: 30px;
+	margin-bottom: 10px;
+}
+.page-ft .logos b {
+	font-weight: 100;
+	font-size: 22px;
+}
+.richang {
+	text-align: center;
+	line-height: 22px;
+	padding: 50px 0 20px 0;
+	color: #666;
+}
+.richang a {
 	color: #666;
 }
