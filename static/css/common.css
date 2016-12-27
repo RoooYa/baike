@@ -96,3 +96,18 @@ body{
 	background: #fff;
 	height: 200px;
 }
+.h-search-form{
+	cursor: pointer;
+	position: relative;
+}
+.search-btn {
+	position: absolute;
+	top: 11px;
+	right: 3px;
+	border: 0;
+	background: #E9E9E9;
+	cursor: pointer;
+}
+.search-btn i{
+	color: #666;
+}
