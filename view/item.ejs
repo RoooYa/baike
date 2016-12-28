@@ -30,59 +30,20 @@
         <div class="item-ft">
           <!-- 本站内容均转自互联网，版权归原作者所有 -->
           <div class="like">
-            <i class="iconfont">&#xe684;</i>
+            <i class="iconfont" id="jLike" data-id="<%=data[0].id%>">&#xe684;</i>
             <div>喜欢</div>
           </div>
         </div>
       </div>
   		<div class="bd-right">
-  			<div class="hotword">
-          <div class="hd">热门文章</div>
-          <ul class="bd">
-            <li>
-              <img src="http://www.topys.cn/attachments/1612/19/5857aff2a313c.png"/>
-              <div class="text">
-                <a href="#">一个时代的记忆，超级马里奥推真人版宣传片</a>
-                <span>2012-01-12</span>
-              </div>
-            </li>
-            <li>
-              <img src="http://www.topys.cn/attachments/1612/19/5857aff2a313c.png"/>
-              <div class="text">
-                <a href="#">一个时代的记忆，超级马里奥推真人版宣传片</a>
-                <span>2012-01-12</span>
-              </div>
-            </li>
-            <li>
-              <img src="http://www.topys.cn/attachments/1612/19/5857aff2a313c.png"/>
-              <div class="text">
-                <a href="#">一个时代的记忆，超级马里奥推真人版宣传片</a>
-                <span>2012-01-12</span>
-              </div>
-            </li>
-            <li>
-              <img src="http://www.topys.cn/attachments/1612/19/5857aff2a313c.png"/>
-              <div class="text">
-                <a href="#">一个时代的记忆，超级马里奥推真人版宣传片</a>
-                <span>2012-01-12</span>
-              </div>
-            </li>
-            <li>
-              <img src="http://www.topys.cn/attachments/1612/19/5857aff2a313c.png"/>
-              <div class="text">
-                <a href="#">一个时代的记忆，超级马里奥推真人版宣传片</a>
-                <span>2012-01-12</span>
-              </div>
-            </li>
-          </ul>
-  			</div>
+  			<% include include/hot.ejs %>
   		</div>
       <div class="clear"></div>
   	</div>
 
     <% include include/ft.ejs %>
     <script>
-		require(['conf/index/index']);
+		require(['conf/item/item']);
     </script>
 </body>
 </html>

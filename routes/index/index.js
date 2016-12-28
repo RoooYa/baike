@@ -72,15 +72,31 @@ module.exports = function(app) {
 				code: 0,
 				data: vals
 			})
-			
-			mysql('update word set word.readNumber = word.readNumber+1 where id = ' + req.query.id, function(err, vals, fields){
+			mysql('update word set word.readNumber = word.readNumber+1 where id = ' + req.query.id, function(err, vals, fields) {
 				if (err) throw err;
 			})
-			
+
 		})
 	})
 
-	// app.get('/item/readnumber', function(req, res) {
+	// 喜欢
+	app.get('/item/like', function(req, res) {
+		mysql('update word set word.like = word.like+1 where id = ' + req.query.id, function(err, vals, fields) {
+			if (err) throw err;
+			res.json({
+				code: 0
+			})
+		})
+	})
 
-	// })
+	// top
+	app.get('/list/hot', function(req, res) {
+		mysql('SELECT * FROM word ORDER BY word.readNumber DESC LIMIT 0, 5', function(err, vals, fields) {
+			if (err) throw err;
+			res.json({
+				code: 0,
+				data: vals
+			})
+		})
+	})
 }
