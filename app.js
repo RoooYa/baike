@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const http = require('http');
@@ -36,6 +36,6 @@ routes(app);
 
 
 
-app.listen(80, function() {
+app.listen(5000, function() {
 	console.log("启动成功");
 });
