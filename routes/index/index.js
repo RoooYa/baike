@@ -22,7 +22,7 @@ module.exports = function(app) {
 			res.render('index', {
 				code: 0,
 				data: vals,
-				page: page
+				page: parseInt(page)
 			})
 		})
 	})
