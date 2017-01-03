@@ -8,6 +8,22 @@ define(function(require, exports, module) {
 		return date.toLocaleDateString();
 	}
 
+
+	function loadImg() {
+		var img = $('.jImg');
+		for (var i = 0, len = img.length; i < len; i++) {
+			var imgIndex = img.eq(i);
+			var src = imgIndex.attr('data-src');
+			if (src) {
+				imgIndex.attr('src', src).on('load', function() {
+					$(this).addClass('fadeIn').removeAttr('data-src');
+				});
+			};
+		}
+	}
+	loadImg()
+
+
 	$.get('/list/hot', function(data) {
 		var data = data.data;
 		var html = '';
