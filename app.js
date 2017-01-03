@@ -2,8 +2,11 @@
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const http = require('http');
+const compression = require('compression');
 
 const app = express();
+
+app.use(compression())
 
 app.use(express.static('static')); //设置静态资源目录
 app.set('views', './view'); //设置模板目录
