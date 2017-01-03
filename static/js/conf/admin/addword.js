@@ -1,10 +1,6 @@
-define(function(require, exports, module) {
+$(function() {
 
 	'use strict';
-
-	var $ = require('jquery'),
-		_ = require('bootstrap');
-
 
 	function uploadFile() {
 		var file = document.getElementById("file")
