@@ -1,9 +1,6 @@
-define(function(require, exports, module) {
+$(function() {
 
 	'use strict';
-
-	var $ = require('jquery'),
-		_bootstrap = require('bootstrap');
 
 	var className = $('#className a');
 	className.on('click', function() {
