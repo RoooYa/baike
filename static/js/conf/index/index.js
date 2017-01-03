@@ -1,27 +1,30 @@
-define(function(require, exports, module) {
+$(function() {
+	function setTime(date) {
+		var date = new Date(date);
+		return date.toLocaleDateString();
+	}
 
-	'use strict';
+	function loadImg() {
+		var img = $('.jImg');
+		for (var i = 0, len = img.length; i < len; i++) {
+			var imgIndex = img.eq(i);
+			var src = imgIndex.attr('data-src');
+			if (src) {
+				imgIndex.attr('src', src).on('load', function() {
+					$(this).addClass('fadeIn').removeAttr('data-src');
+				});
+			};
+		}
+	}
 
-	var $ = require('jquery');
-	var _ = require('conf/common');
+	loadImg()
 
-	
-	// $('#setWord').on('click', function() {
-	// 	$.ajax({
-	// 	   type: "GET",
-	// 	   url: "/word/add",
-	// 	   data: {
-	// 	   		word: $('#wordText').val()
-	// 	   },
-	// 	   success: function(data) {
-	// 	     if (data.code == 0) {
-	// 	     	$('#wordText').val('');
-	// 	     	var html = '<div class="item-list animation"><div class="img"><img class="user-image" src="/img/userimg.jpg"></div><div class="word overflow-hidden"><i class="iconfont">&#xe609;</i><div class="hd">'+ data.data[0].userName +'</div><div class="bd">'+ data.data[0].word +'</div><div class="ft overflow-hidden"><ul class="float-right"><li>分享</li><li>评论(0)</li></ul></div></div></div>';
-	// 	     	$('#jTextarea').after(html)
-	// 	     }else {
-	// 	     	alert(data.msg)
-	// 	     }
-	// 	   }
-	// 	});
-	// })
+	$.get('/list/hot', function(data) {
+		var data = data.data;
+		var html = '';
+		for (var i = 0; i < data.length; i++) {
+			html += '<li><img src="' + data[i].img + '"/><div class="text"><a href="/item?id=' + data[i].id + '">' + data[i].title + '</a><span>' + setTime(data[i].dataTime) + '</span></div></li>'
+		}
+		$('#hotList').html(html);
+	})
 })
