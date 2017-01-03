@@ -10,9 +10,7 @@ $(function() {
 			var imgIndex = img.eq(i);
 			var src = imgIndex.attr('data-src');
 			if (src) {
-				imgIndex.attr('src', src).on('load', function() {
-					$(this).addClass('fadeIn').removeAttr('data-src');
-				});
+				imgIndex.attr('src', src).removeAttr('data-src');
 			};
 		}
 	}
