@@ -6,7 +6,7 @@ const compression = require('compression');
 
 const app = express();
 
-app.use(compression())
+app.use(compression())  //静态资源压缩
 
 app.use(express.static('static')); //设置静态资源目录
 app.set('views', './view'); //设置模板目录
