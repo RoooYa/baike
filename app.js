@@ -11,7 +11,7 @@ app.use(compression())  //静态资源压缩
 app.use(express.static('static')); //设置静态资源目录
 app.set('views', './view'); //设置模板目录
 app.set('view engine', 'ejs'); //设置模板引擎名称
-
+app.set('x-powered-by', false);
 
 app.use(session({
 	secret: 'daobidao', //为了安全性的考虑设置secret属性

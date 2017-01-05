@@ -52,6 +52,7 @@
     height: 45px;
     margin: 15px 0 0 12px;
     word-wrap: break-word;
+    overflow: hidden;
 }
 .bd-left li .title a:hover {
 	text-decoration: underline;
