@@ -39,6 +39,6 @@ routes(app);
 
 
 
-app.listen(80, function() {
+app.listen(5000, function() {
 	console.log("启动成功");
 });
