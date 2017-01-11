@@ -36,7 +36,16 @@
 	font-size: 14px;
 }
 .bd-left .cente-bd p {
-	padding: 15px 0;
+	padding: 10px 0;
+}
+.bd-left .cente-bd blockquote{
+	display: block;
+    border-left: 8px solid #d0e5f2;
+    padding: 5px 10px;
+    margin: 0 0;
+    line-height: 1.4;
+    font-size: 100%;
+    background-color: #f1f1f1;
 }
 .item-ft {
 	padding: 10px 20px 20px 20px;
