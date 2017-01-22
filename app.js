@@ -48,6 +48,6 @@ routes(app);
 
 
 
-app.listen(5000, function() {
+app.listen(80, function() {
 	console.log("启动成功");
 });
