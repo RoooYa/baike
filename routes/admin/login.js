@@ -27,6 +27,7 @@ module.exports = function(app) {
 
 		if (data.userName == userName && data.password == password) {
 			req.session.login = true;
+			res.cookie('i', true);
 			res.redirect('/admin');
 		}else {
 			res.send('您的账号与密码不匹配')

@@ -1,12 +1,15 @@
 ﻿const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const cookie = require('cookie-parser');
 const http = require('http');
 const compression = require('compression');
 
 const app = express();
 
 app.use(compression())  //静态资源压缩
+
+app.use(cookie());
 
 app.use(express.static('static')); //设置静态资源目录
 app.set('views', './view'); //设置模板目录
@@ -24,7 +27,8 @@ app.use(session({
 
 // 判断是否登录
 app.use('/admin/', function(req, res, next) {
-	if (req.session.login) {
+	//console.log(req.cookies.i);
+	if (req.cookies.i) {
 		next();
 	}else{
 		res.redirect('/login');
